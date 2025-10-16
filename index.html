@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوه الكترونية</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+   <!-- 
+Base designed by Fabian Albert:  
+https://www.pinterest.com/pin/1045749975969474374/ 
+-->
+  
+<div class="card" data-aos="fade-down" data-aos-delay="100">
+    <img src="./assets/img/invitation.png" data-aos="fade-up" data-aos-delay="200" alt="">
+    <img id="flower" data-aos="fade-up" data-aos-delay="300" src="./assets/img/flower.png" alt="">
+    <h1 data-aos="fade-left" data-aos-delay="200">بكل حب وود تتشرف</h1>
+    <h1 data-aos="fade-left" data-aos-delay="300">عائلة المهندس / محمد أمين الأصبحي<br>وعائلة الحاج / حمود حسن الرضيمي</h1>
+    <h1 data-aos="fade-left" data-aos-delay="400">بدعوتكم لحضور حفل زفاف</h1>
+
+    <div class="names">
+      منال <span class="separator">✿</span> خالد
+    </div>
+
+    <div class="icons" data-aos="fade-up" data-aos-delay="500">
+      <div>
+        <img id="noChild" src="./assets/img/no-children.png" alt="">
+        <h2>يمنع دخول الأطفال</h2>
+        <h2>معنا باتا</h2>
+      </div>
+      <div>
+        <img id="location" src="./assets/img/icons8-location-80.png" alt="" srcset="">
+        <h2>قاعة قصر صنعاء</h2>
+        <h2>عصر - جوار الموقف هائل</h2>
+      </div>
+      <div>
+       <img id="calendar" src="./assets/img/icons8-calendar-100 (1).png" alt="">
+        <h2>يوم الجمعة</h2>
+        <h2>2025/10/24</h2>
+      </div>
+    </div>
+
+    <div class="note" data-aos="fade-up" data-aos-delay="700">
+      احضار الكرت المداعه والشفيفه لمن ترغب <br>
+      إبراز الكرت عند الدخول
+    </div>
+
+    <div class="footer" data-aos="fade-up" data-aos-delay="700">
+      أفراحنا تكتمل بحضوركم
+    </div>
+  </div>
+  <div class="accents">
+    <div class="acc-card" data-aos="fade-up" ></div><div class="acc-card" data-aos="fade-up" ></div><div class="acc-card" data-aos="fade-up"></div>
+    <div class="light"></div><div class="light sm"></div>
+    <div class="top-light"></div>
+  </div> 
+  <div id="timerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-timezone="Asia/Aden" data-date="2025-10-24 05:46">الوقت المتبقي🕰️</a>
+      <p class="note">نحن في انتظاركم بفارغ الصبر!</p>
+    </div>
+  </div>
+  <div id="mapModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>موقع القاعة</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.565379036036!2d44.162328311139305!3d15.345836858334803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603dc9a54c6a651%3A0x54d9b543e6f035a5!2sSanaa%20Palace%20for%20parties%20and%20events!5e0!3m2!1sen!2s!4v1760579580406!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script>
+    // تهيئة AOS للبطاقات الثابتة
+    document.addEventListener("DOMContentLoaded", function() {
+      AOS.init({
+        duration: 1200, // مدة الحركة بالمللي ثانية
+        once: true,     // تظهر مرة واحدة فقط
+        offset: 0       // تفعيل الحركة مباشرة بدون حاجة للتمرير
+      });
+  
+      // اجعل AOS يقوم بتحديث الحسابات بعد تحميل الصفحة
+      AOS.refreshHard();
+    });
+  </script>
+<script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const mapModal = document.getElementById("mapModal");
+  const locationImg = document.getElementById("location");
+  const closeBtn = mapModal.querySelector(".close"); // specific to mapModal
+
+  locationImg.addEventListener("click", () => {
+    mapModal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mapModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === mapModal) {
+      mapModal.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const timerModal = document.getElementById("timerModal");
+  const calendar = document.getElementById("calendar");
+  const closeBtn = timerModal.querySelector(".close");
+  const countdownEl = document.getElementById("countdown");
+
+  const eventDate = new Date("2025-10-24T18:00:00"); // Set your event datetime
+
+  let timerInterval;
+
+  // Open modal
+  calendar.addEventListener("click", () => {
+    timerModal.style.display = "block";
+    updateCountdown();
+    timerInterval = setInterval(updateCountdown, 1000);
+  });
+
+  // Close modal
+  closeBtn.addEventListener("click", () => {
+    timerModal.style.display = "none";
+    clearInterval(timerInterval);
+  });
+
+  // Close on clicking outside
+  window.addEventListener("click", (e) => {
+    if (e.target === timerModal) {
+      timerModal.style.display = "none";
+      clearInterval(timerInterval);
+    }
+  });
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = "الحفل بدأ!";
+      clearInterval(timerInterval);
+      return;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdownEl.textContent = 
+      `${hours.toString().padStart(2,'0')} : ${minutes.toString().padStart(2,'0')} : ${seconds.toString().padStart(2,'0')}`;
+  }
+});
+
+
+</script>
+</body>
+</html>
