@@ -1,167 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دعوه الكترونية</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دعوة زفاف</title>
+
+  <!-- ✅ Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ✨ AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- 🌸 Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amiri&display=swap" rel="stylesheet">
+  <!-- 🌸 Elegant Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- 🌿 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    
+   body {   background: linear-gradient(-45deg, #ae5f47, #c3831e, #817764, #ffffff);
+  font-family: 'Tajawal', sans-serif;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: auto;  /* يضمن أن يغطي الشاشة إذا كان المحتوى قصير */  
+  padding: 20px 0;    /* يضيف مسافة علوية وسفلية أنيقة */
+ } 
+ @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+ .invitation-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+    .card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.75); /* خفيف للسماح برؤية الصورة */
+  border-radius: 25px;
+  height: auto;       /* ارتفاع الكارد يعتمد على المحتوى */
+  min-height: 1000px; /* احتفظ بالحد الأدنى للكارد على الشاشات الكبيرة */
+  padding: 2rem;
+  opacity: 0.9;
+  margin-top: -30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border: 4px solid transparent;
+  background-clip: padding-box, border-box;
+  animation: cardGlow 6s ease-in-out infinite;
+  transition: transform 0.4s, box-shadow 0.4s;
+  color: #c49a6c;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+@keyframes cardGlow {
+  0% { border-image: linear-gradient(45deg, #ffd7b5, #c49a6c) 1; }
+  50% { border-image: linear-gradient(45deg, #c49a6c, #ffd7b5) 1; }
+  100% { border-image: linear-gradient(45deg, #ffd7b5, #c49a6c) 1; }
+}
+
+/* Name Glow */
+.names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.8rem;
+  color: #c49a6c;
+  margin: 1.5rem 0;
+  display: inline-block;
+  text-shadow: 0 0 5px #fff1e0, 0 0 15px #ffd7b5, 0 0 25px #ffb45c;
+  animation: nameGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+  0% { text-shadow: 0 0 5px #fff1e0, 0 0 15px #ffd7b5, 0 0 25px #ffb45c; }
+  100% { text-shadow: 0 0 10px #fff1e0, 0 0 25px #ffd7b5, 0 0 35px #ffb45c; }
+}
+
+/* Separator Animation */
+.separator {
+  font-size: 2.5rem;
+  margin: 0 15px;
+  display: inline-block;
+  color: #c49a6c;
+  text-shadow: 0 0 8px #ffd7b5;
+}
 
 
+
+/* Optional: soft inner floating particles */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle, rgba(255,215,181,0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 25px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+    .firstH1 {  font-family: 'Tajawal', sans-serif;letter-spacing: 0.5px; font-size: 1.8rem; color: #8b5e34; }
+    .names {  font-family: 'Parisienne', cursive;
+  font-size: 4rem;
+  color: #c49a6c;
+  text-shadow: 0 0 8px #fff1e0, 0 0 15px #ffd7b5, 0 0 30px #ffb45c;
+  animation: nameGlow 3s ease-in-out infinite alternate; }
+    .separator { font-size: 2.2rem; margin: 0 12px; display: inline-block; animation: spin 6s linear infinite; color: #c49a6c; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    #noChild, #location, #calendar { max-width: 50px; margin-bottom: 10px; cursor: pointer;   transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;}
+    #location:hover, 
+#calendar:hover {
+  transform: rotate(-10deg);
+  filter: brightness(1.2);
+}
+
+
+    .note { font-size: 2rem; background: #dbc4ae; padding: 15px; border-radius: 15px; max-width: 500px; margin: auto; color: #555; }
+    .footer { font-size: 1.3rem; color: #8b5e34; margin-top: 1.5rem; font-weight: bold; background-color: #ae5f47;color: white; }
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
+    .modal-content { background-color: #fff; margin: 5% auto; padding: 20px; border-radius: 15px; width: 80%; max-width: 700px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.5); animation: fadeIn 0.3s ease-in-out; }
+    .modal .close { position: absolute; top: 10px; right: 20px; color: #333; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+    .modal .close:hover { color: #ffb400; }
+    .accents {
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4%;
+}
+
+
+#flower {
+  position: absolute;
+  bottom: -400px;
+  left: -690px;
+  width: 300px;
+  height: 800px;
+}
+
+
+.accents .light {
+  --bgref: url("data:image/svg+xml,%3C%3Fxml%20version%3D'1.0'%20encoding%3D'UTF-8'%3F%3E%3Csvg%20id%3D'Layer_1'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20viewBox%3D'0%200%20487%20487'%3E%3Ccircle%20cx%3D'243'%20cy%3D'243.5'%20r%3D'233'%20style%3D'fill%3Anone%3B%20opacity%3A.1%3B%20stroke%3A%23FFD700%3B%20stroke-linecap%3Around%3B%20stroke-miterlimit%3A10%3B%20stroke-width%3A18px%3B'/%3E%3Ccircle%20cx%3D'243.5'%20cy%3D'243.5'%20r%3D'243'%20style%3D'fill%3Anone%3B%20stroke%3A%23FFD700%3B%20stroke-linecap%3Around%3B%20stroke-miterlimit%3A10%3B'/%3E%3Ccircle%20cx%3D'243'%20cy%3D'243.5'%20r%3D'222'%20style%3D'fill%3Anone%3B%20stroke%3A%23FFD700%3B%20stroke-linecap%3Around%3B%20stroke-miterlimit%3A10%3B'/%3E%3Cpath%20d%3D'm10%2C243.5C10%2C114.82%2C114.32%2C10.5%2C243%2C10.5'%20style%3D'fill%3Anone%3B%20stroke%3A%23FFD700%3B%20stroke-linecap%3Around%3B%20stroke-miterlimit%3A10%3B%20stroke-width%3A18px%3B'/%3E%3C/svg%3E");
+  position: absolute;
+  left: 0;
+  right: calc(0% + 5px);
+  top: 264px;
+  margin: auto;
+  width: 320px;
+  height: 190px;
+  z-index: -2;
+  background-image: var(--bgref);
+  animation: rotate360 22s linear infinite;
+}
+
+.accents .light::before,
+.accents .light::after {
+  display: none; /* optional: remove extra blur layers */
+}
+.accents .light::after {
+  filter: blur(8px);
+}
+
+.accents .light.sm {
+  width: 100px;
+  height: 100px;
+  left: calc(0% + 50px);
+  right: 0;
+  top: 142px;
+  bottom: 0;
+  animation: rotate360 18s linear -10s infinite;
+}
+
+.accents .top-light {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -42px;
+  margin: auto;
+  width: 284px;
+  height: 6px;
+  border-radius: 10px;
+  background: #fffef9;
+  box-shadow: 0 0px 1px 1px #ffc78e,
+    0 1px 2px 1px #ff942977,
+    0 2px 6px 1px #e98b2d77,
+    0 4px 12px 0px #ff9e3d99,
+    0 12px 20px 12px #ff800044;
+}
+
+@keyframes rotate360 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1);
+  }
+  20% {
+    transform: translateX(-44px) translateY(-8px) rotate(6deg) scale(1.02);
+  }
+  60% {
+    transform: translateX(32px) translateY(18px) rotate(-8deg) scale(1);
+  }
+  80% {
+    transform: translateX(-42px) translateY(-22px) rotate(12deg) scale(0.94);
+  }
+  100% {
+    transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    height: auto;      /* يجعل الطول يتبع المحتوى */
+    min-height: 1200px; /* يمكنك تعديل الرقم حسب حاجتك */
+    padding: 2rem 1rem; /* تقليل الحشو الجانبي ليناسب الشاشات الصغيرة */
+  }
+
+  .names {
+    font-size: 3rem;   /* تقليل حجم الاسم قليلاً للشاشات الصغيرة */
+  }
+
+  .separator {
+    font-size: 2rem;   /* تقليل حجم الفاصل */
+  }
+}
+  /* مؤشر الماوس عادي */
+  .no-click {
+    pointer-events: none; /* يمنع أي تفاعل */
+    cursor: default;
+    text-decoration: none; /* إزالة تأثير الرابط */
+    color: inherit; /* يترك اللون الطبيعي */
+  }
+  </style>
 </head>
 <body>
-   <!-- 
-Base designed by Fabian Albert:  
-https://www.pinterest.com/pin/1045749975969474374/ 
--->
-  
-<div class="card" data-aos="fade-down" data-aos-delay="100">
-    <img src="./assets/img/invitation.png" data-aos="fade-up" data-aos-delay="200" alt="">
-    <img id="flower" data-aos="fade-up" data-aos-delay="300" src="./assets/img/flower.png" alt="">
-    <h1 data-aos="fade-left" data-aos-delay="200">بكل حب وود تتشرف</h1>
-    <h1 data-aos="fade-left" data-aos-delay="300">عائلة المهندس / محمد أمين الأصبحي<br>وعائلة الحاج / حمود حسن الرضيمي</h1>
-    <h1 data-aos="fade-left" data-aos-delay="400">بدعوتكم لحضور حفل زفاف</h1>
-
-    <div class="names">
-      منال <span class="separator">✿</span> خالد
+<div class="invitation-wrapper" data-aos="fade-down">
+  <div class="card text-center" data-aos="zoom-in" data-aos-delay="100">
+    <div class="card-header bg-transparent border-0">
+      <h1 class="firstH1" data-aos="fade-down" data-aos-delay="200">بكل حب وود تتشرف</h1>
+    </div>
+    <div class="card-body">
+      <h1 data-aos="fade-left" data-aos-delay="300">عائلة المهندس / محمد أمين الأصبحي<br>وعائلة الحاج / حمود حسن الرضمي</h1>
+      <h1 data-aos="fade-left" data-aos-delay="400">بدعوتكم لحضور حفل زفاف</h1>
     </div>
 
-    <div class="icons" data-aos="fade-up" data-aos-delay="500">
-      <div>
+    <div class="names my-3" data-aos="zoom-in" data-aos-delay="600">منال <span class="separator">✿</span> خالد</div>
+
+    <!-- 🏛 Event Details -->
+    <div class="row justify-content-center text-center my-4" data-aos="fade-up" data-aos-delay="700">
+      <div class="col-12 col-md-4 mb-3">
         <img id="noChild" src="./assets/img/no-children.png" alt="">
         <h2>يمنع دخول الأطفال</h2>
         <h2>معنا باتا</h2>
       </div>
-      <div>
-        <img id="location" src="./assets/img/icons8-location-80.png" alt="" srcset="">
+      <div class="col-12 col-md-4 mb-3">
+        <img id="location" src="./assets/img/icons8-location-80.png" alt="">
         <h2>قاعة قصر صنعاء</h2>
         <h2>عصر - جوار الموقف هائل</h2>
       </div>
-      <div>
-       <img id="calendar" src="./assets/img/icons8-calendar-100 (1).png" alt="">
+      <div class="col-12 col-md-4 mb-3">
+        <img id="calendar" src="./assets/img/icons8-calendar-100.png" alt="">
         <h2>يوم الجمعة</h2>
         <h2>2025/10/24</h2>
       </div>
     </div>
 
-    <div class="note" data-aos="fade-up" data-aos-delay="700">
-      احضار الكرت المداعه والشفيفه لمن ترغب <br>
-      إبراز الكرت عند الدخول
+    <div class="note mb-3" data-aos="fade-up" data-aos-delay="800">
+      احضار المداعه الشيشه لمن ترغب <br> إبراز الكرت عند الدخول
     </div>
 
-    <div class="footer" data-aos="fade-up" data-aos-delay="700">
-      أفراحنا تكتمل بحضوركم
+    <div class="footer" data-aos="fade-up" data-aos-delay="900">
+     🌹 أفراحنا تكتمل بحضوركم
     </div>
   </div>
-  <div class="accents">
-    <div class="acc-card" data-aos="fade-up" ></div><div class="acc-card" data-aos="fade-up" ></div><div class="acc-card" data-aos="fade-up"></div>
-    <div class="light"></div><div class="light sm"></div>
+</div>
+
+<!-- 🗺 Map Modal -->
+<div id="mapModal" class="modal">
+  <div class="modal-content text-center">
+    <span class="close">&times;</span>
+    <h2>موقع القاعة</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.565379036036!2d44.162328311139305!3d15.345836858334803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603dc9a54c6a651%3A0x54d9b543e6f035a5!2sSanaa%20Palace%20for%20parties%20and%20events!5e0!3m2!1sen!2s!4v1760579580406!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+<div class="accents">
+    <div class="light"></div>
+    <div class="light sm"></div>
     <div class="top-light"></div>
-  </div> 
-  <div id="timerModal" class="modal">
-    <div class="modal-content">
+  </div>
+<!-- ⏰ Timer Modal -->
+<div id="timerModal" class="modal">
+    <div class="modal-content text-center">
       <span class="close">&times;</span>
-      <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-timezone="Asia/Aden" data-date="2025-10-24 05:46">الوقت المتبقي🕰️</a>
+      <h2 class="mb-3">الوقت المتبقي 🕰️</h2>
+      <!-- تم تحويل الرابط إلى span -->
+      <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+      <a href="https://logwork.com/countdown-timer" class="countdown-timer no-click" data-timezone="Asia/Aden" data-date="2025-10-24 21:00">Countdown Timer</a>
       <p class="note">نحن في انتظاركم بفارغ الصبر!</p>
     </div>
   </div>
-  <div id="mapModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>موقع القاعة</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.565379036036!2d44.162328311139305!3d15.345836858334803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603dc9a54c6a651%3A0x54d9b543e6f035a5!2sSanaa%20Palace%20for%20parties%20and%20events!5e0!3m2!1sen!2s!4v1760579580406!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </div>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script>
-    // تهيئة AOS للبطاقات الثابتة
-    document.addEventListener("DOMContentLoaded", function() {
-      AOS.init({
-        duration: 1200, // مدة الحركة بالمللي ثانية
-        once: true,     // تظهر مرة واحدة فقط
-        offset: 0       // تفعيل الحركة مباشرة بدون حاجة للتمرير
-      });
-  
-      // اجعل AOS يقوم بتحديث الحسابات بعد تحميل الصفحة
-      AOS.refreshHard();
-    });
-  </script>
+<!-- ✅ Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  // Initialize AOS
+  document.addEventListener("DOMContentLoaded", () => { AOS.init({ duration: 1200, once: true, offset: 0 }); });
+
+  // Map Modal
   const mapModal = document.getElementById("mapModal");
   const locationImg = document.getElementById("location");
-  const closeBtn = mapModal.querySelector(".close"); // specific to mapModal
+  const mapClose = mapModal.querySelector(".close");
+  locationImg.addEventListener("click", () => mapModal.style.display = "block");
+  mapClose.addEventListener("click", () => mapModal.style.display = "none");
+  window.addEventListener("click", e => { if(e.target===mapModal) mapModal.style.display="none"; });
 
-  locationImg.addEventListener("click", () => {
-    mapModal.style.display = "block";
-  });
-
-  closeBtn.addEventListener("click", () => {
-    mapModal.style.display = "none";
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === mapModal) {
-      mapModal.style.display = "none";
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
+  // Timer Modal
   const timerModal = document.getElementById("timerModal");
-  const calendar = document.getElementById("calendar");
-  const closeBtn = timerModal.querySelector(".close");
-  const countdownEl = document.getElementById("countdown");
-
-  const eventDate = new Date("2025-10-24T18:00:00"); // Set your event datetime
-
-  let timerInterval;
-
-  // Open modal
-  calendar.addEventListener("click", () => {
-    timerModal.style.display = "block";
-    updateCountdown();
-    timerInterval = setInterval(updateCountdown, 1000);
-  });
-
-  // Close modal
-  closeBtn.addEventListener("click", () => {
-    timerModal.style.display = "none";
-    clearInterval(timerInterval);
-  });
-
-  // Close on clicking outside
-  window.addEventListener("click", (e) => {
-    if (e.target === timerModal) {
-      timerModal.style.display = "none";
-      clearInterval(timerInterval);
-    }
-  });
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = eventDate - now;
-
-    if (diff <= 0) {
-      countdownEl.textContent = "الحفل بدأ!";
-      clearInterval(timerInterval);
-      return;
-    }
-
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdownEl.textContent = 
-      `${hours.toString().padStart(2,'0')} : ${minutes.toString().padStart(2,'0')} : ${seconds.toString().padStart(2,'0')}`;
-  }
-});
-
-
+  const calendarImg = document.getElementById("calendar");
+  const timerClose = timerModal.querySelector(".close");
+  calendarImg.addEventListener("click", () => timerModal.style.display = "block");
+  timerClose.addEventListener("click", () => timerModal.style.display = "none");
+  window.addEventListener("click", e => { if(e.target===timerModal) timerModal.style.display="none"; });
+  window.addEventListener("keydown", e => { if(e.key==="Escape"){ mapModal.style.display="none"; timerModal.style.display="none"; } });
 </script>
+
 </body>
 </html>
