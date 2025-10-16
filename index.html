@@ -237,6 +237,45 @@
     text-decoration: none; /* إزالة تأثير الرابط */
     color: inherit; /* يترك اللون الطبيعي */
   }
+
+  #customTimer {
+  font-family: 'Parisienne', cursive;
+  color: #c49a6c;
+  direction: rtl; /* Ensure numbers and text flow RTL */
+}
+
+.timer-box {
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  padding: 15px 20px;
+  min-width: 80px;
+  box-shadow: 0 0 15px rgba(255,215,181,0.6), 0 0 25px rgba(255,192,128,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timer-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255,215,181,0.8), 0 0 35px rgba(255,192,128,0.6);
+}
+
+.timer-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff1e0, 0 0 15px #ffd7b5, 0 0 25px #ffb45c;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.timer-label {
+  font-size: 1rem;
+  margin-top: 5px;
+  color: #fff1e0;
+  text-shadow: 0 0 3px #ffd7b5;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #fff1e0, 0 0 15px #ffd7b5, 0 0 25px #ffb45c; }
+  100% { text-shadow: 0 0 10px #fff1e0, 0 0 25px #ffd7b5, 0 0 40px #ffb45c; }
+}
   </style>
 </head>
 <body>
@@ -299,9 +338,25 @@
     <div class="modal-content text-center">
       <span class="close">&times;</span>
       <h2 class="mb-3">الوقت المتبقي 🕰️</h2>
-      <!-- تم تحويل الرابط إلى span -->
-      <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-      <a href="https://logwork.com/countdown-timer" class="countdown-timer no-click" data-timezone="Asia/Aden" data-date="2025-10-24 21:00">Countdown Timer</a>
+      <div id="customTimer" class="d-flex justify-content-center gap-3 my-3" style="flex-direction: row-reverse;">
+        <div class="timer-box text-center">
+          <div id="days" class="timer-number">00</div>
+          <div class="timer-label">أيام</div>
+        </div>
+        <div class="timer-box text-center">
+          <div id="hours" class="timer-number">00</div>
+          <div class="timer-label">ساعات</div>
+        </div>
+        <div class="timer-box text-center">
+          <div id="minutes" class="timer-number">00</div>
+          <div class="timer-label">دقائق</div>
+        </div>
+        <div class="timer-box text-center">
+          <div id="seconds" class="timer-number">00</div>
+          <div class="timer-label">ثواني</div>
+        </div>
+      </div>
+      
       <p class="note">نحن في انتظاركم بفارغ الصبر!</p>
     </div>
   </div>
@@ -331,6 +386,33 @@
   window.addEventListener("click", e => { if(e.target===timerModal) timerModal.style.display="none"; });
   window.addEventListener("keydown", e => { if(e.key==="Escape"){ mapModal.style.display="none"; timerModal.style.display="none"; } });
 </script>
+<script>
+  const countdownDate = new Date("2025-10-24 21:00:00").getTime();
+  
+  function updateCustomTimer() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+  
+    if(distance < 0){
+      document.getElementById("customTimer").innerHTML = "<p style='color:#ff6b6b;'>الحفل بدأ 🎉</p>";
+      return;
+    }
+  
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    document.getElementById("days").textContent = String(days).padStart(2,'0');
+    document.getElementById("hours").textContent = String(hours).padStart(2,'0');
+    document.getElementById("minutes").textContent = String(minutes).padStart(2,'0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2,'0');
+  
+    requestAnimationFrame(updateCustomTimer);
+  }
+  
+  updateCustomTimer();
+  </script>
 
 </body>
 </html>
