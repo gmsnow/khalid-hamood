@@ -25,7 +25,8 @@
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: auto;  /* يضمن أن يغطي الشاشة إذا كان المحتوى قصير */  
-  padding: 20px 0;    /* يضيف مسافة علوية وسفلية أنيقة */
+  padding: 20px 0; 
+  overflow-x: hidden;   /* يضيف مسافة علوية وسفلية أنيقة */
  } 
  @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
@@ -271,11 +272,14 @@
   100% { text-shadow: 0 0 10px #fff1e0, 0 0 25px #ffd7b5, 0 0 40px #ffb45c; }
 }
 #svg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  filter: drop-shadow(0 0 4px #000);
+  position: fixed;         /* stays in place */
+  top: 50%;                /* vertically center */
+  left: 50%;               /* horizontally center */
+  transform: translate(-50%, -50%); /* true center */
+  width: 100vw;            /* fill viewport width */
+  height: 100vh;           /* fill viewport height */
+  pointer-events: none;    /* allow clicking elements above */
+  z-index: 0;              /* behind your card */
 }
 
 .flower path {
@@ -476,8 +480,8 @@ footer {
   </style>
 </head>
 <body>
-  <svg id="svg"></svg>
-<div class="invitation-wrapper" data-aos="fade-down">
+  <div class="invitation-wrapper" data-aos="fade-down" style="position: relative;">
+    <svg id="svg"></svg>
   <div class="card text-center" data-aos="zoom-in" data-aos-delay="100">
     <div class="card-header bg-transparent border-0">
       <h1 class="firstH1" data-aos="fade-down" data-aos-delay="200">بكل حب وود تتشرف</h1>
@@ -630,8 +634,12 @@ function App() {
   }
 
   function onClick(e) {
-    createFlower({ x: e.clientX - cx, y: e.clientY - cy });
-  }
+  const rect = svg.getBoundingClientRect();
+  // Convert viewport coordinates to SVG coordinates
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
+  createFlower({ x, y });
+}
 
   function createFlower(params) {
   const iRadiusCoef = rnd(2, 3);  // increased from 1-2
