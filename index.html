@@ -1376,6 +1376,33 @@ footer {
 .not-loaded * {
   animation-play-state: paused !important;
 }
+.music-control-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;               /* ✅ Flexbox to center icon */
+  align-items: center;         /* ✅ Vertically center */
+  justify-content: center;     /* ✅ Horizontally center */
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.music-control-btn:hover {
+  background-color: #f8f0e3;
+  transform: scale(1.1);
+}
+
+.music-control-btn i {
+  font-size: 24px;
+  color: #ae5f47;
+}
 
   </style>
 </head>
@@ -1519,7 +1546,7 @@ footer {
 </audio>
 <!-- 🎧 Music Control Button -->
 <button id="music-btn" class="btn btn-light rounded-circle shadow position-fixed" 
-        style="bottom: 20px; left: 20px; z-index: 999;">
+        style="bottom: 20px; left: 20px; z-index: 999; background-color: #c49a6c;">
   <i class="fa-solid fa-pause"></i>
 </button>
 
