@@ -19,14 +19,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    
+@font-face {
+  font-family: 'TaseesSaudi';
+  src: url('./assets/font/Tasees-Saudi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
    body {   background: linear-gradient(-45deg, #ae5f47, #c3831e, #817764, #ffffff);
-  font-family: 'Tajawal', sans-serif;
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: auto;  /* يضمن أن يغطي الشاشة إذا كان المحتوى قصير */  
   padding: 20px 0; 
-  overflow-x: hidden;   /* يضيف مسافة علوية وسفلية أنيقة */
+  overflow-x: hidden; 
+  font-family: 'TaseesSaudi', sans-serif;  /* يضيف مسافة علوية وسفلية أنيقة */
  } 
  @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
@@ -67,12 +72,10 @@
 
 /* Name Glow */
 .names {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.8rem;
+  font-family: 'TaseesSaudi', sans-serif;
+  font-size: 4rem;
   color: #c49a6c;
-  margin: 1.5rem 0;
-  display: inline-block;
-  text-shadow: 0 0 5px #fff1e0, 0 0 15px #ffd7b5, 0 0 25px #ffb45c;
+  text-shadow: 0 0 8px #fff1e0, 0 0 15px #ffd7b5, 0 0 30px #ffb45c;
   animation: nameGlow 3s ease-in-out infinite alternate;
 }
 
@@ -105,11 +108,13 @@
 }
 
     .firstH1 {  font-family: 'Tajawal', sans-serif;letter-spacing: 0.5px; font-size: 1.8rem; color: #8b5e34; }
-    .names {  font-family: 'Parisienne', cursive;
+    .names {
+  font-family: 'TaseesSaudi', sans-serif;
   font-size: 4rem;
   color: #c49a6c;
   text-shadow: 0 0 8px #fff1e0, 0 0 15px #ffd7b5, 0 0 30px #ffb45c;
-  animation: nameGlow 3s ease-in-out infinite alternate; }
+  animation: nameGlow 3s ease-in-out infinite alternate;
+}
     .separator { font-size: 2.2rem; margin: 0 12px; display: inline-block; animation: spin 6s linear infinite; color: #c49a6c; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     #noChild, #location, #calendar { max-width: 50px; margin-bottom: 10px; cursor: pointer;   transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;}
@@ -1374,7 +1379,7 @@ footer {
 
   </style>
 </head>
-<body>
+<body class="not-loaded">
 
   <!--  
  
@@ -1383,7 +1388,7 @@ footer {
   Made with Pure CSS & ♥
 -->
 
-<body class="not-loaded">
+
   <div class="flowers">
     <div class="flower flower--1">
       <div class="flower__leafs flower__leafs--1">
@@ -1465,28 +1470,7 @@ footer {
       </div>
     </div>
 
-   
-   
-
- 
-
-   
-
-    
-
-   
-
-
-  
-
-
-
-
-
-
-    
   </div>
-</body>
   <div class="invitation-wrapper" data-aos="fade-down" style="position: relative;">
     <svg id="svg"></svg>
   <div class="card text-center" data-aos="zoom-in" data-aos-delay="100">
@@ -1528,6 +1512,16 @@ footer {
     </div>
   </div>
 </div>
+<!-- 🎵 Wedding Background Music -->
+<audio id="bg-music" autoplay loop>
+  <source src="./assets/Lukrembo - Rose (freetouse.com).mp3" type="audio/mpeg">
+  متصفحك لا يدعم تشغيل الصوت
+</audio>
+<!-- 🎧 Music Control Button -->
+<button id="music-btn" class="btn btn-light rounded-circle shadow position-fixed" 
+        style="bottom: 20px; left: 20px; z-index: 999;">
+  <i class="fa-solid fa-pause"></i>
+</button>
 
 <!-- 🗺 Map Modal -->
 <div id="mapModal" class="modal">
@@ -1780,6 +1774,30 @@ onload = () => {
   }, 1000);
 };
 
+</script>
+<script>
+  const music = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-btn');
+  const icon = musicBtn.querySelector('i');
+
+  // Some browsers block autoplay — this ensures it starts on first user interaction
+  document.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+    }
+  }, { once: true });
+
+  musicBtn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      icon.classList.remove('fa-play');
+      icon.classList.add('fa-pause');
+    } else {
+      music.pause();
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
+    }
+  });
 </script>
 </body>
 </html>
