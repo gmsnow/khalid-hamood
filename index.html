@@ -1386,9 +1386,9 @@ footer {
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  display: flex;               /* ✅ Flexbox to center icon */
-  align-items: center;         /* ✅ Vertically center */
-  justify-content: center;     /* ✅ Horizontally center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
@@ -1403,7 +1403,6 @@ footer {
   font-size: 24px;
   color: #ae5f47;
 }
-
   </style>
 </head>
 <body class="not-loaded">
@@ -1539,14 +1538,14 @@ footer {
     </div>
   </div>
 </div>
-<!-- 🎵 Wedding Background Music -->
+<!-- 🎵 Background Music -->
 <audio id="bg-music" autoplay loop>
   <source src="./assets/Lukrembo - Rose (freetouse.com).mp3" type="audio/mpeg">
   متصفحك لا يدعم تشغيل الصوت
 </audio>
-<!-- 🎧 Music Control Button -->
-<button id="music-btn" class="btn btn-light rounded-circle shadow position-fixed" 
-        style="bottom: 20px; left: 20px; z-index: 999; background-color: #c49a6c;">
+
+<!-- 🎧 Control Button -->
+<button id="music-btn" class="music-control-btn">
   <i class="fa-solid fa-pause"></i>
 </button>
 
@@ -1807,13 +1806,12 @@ onload = () => {
   const musicBtn = document.getElementById('music-btn');
   const icon = musicBtn.querySelector('i');
 
-  // Some browsers block autoplay — this ensures it starts on first user interaction
+  // ✅ Auto play after first click (for browsers that block autoplay)
   document.addEventListener('click', () => {
-    if (music.paused) {
-      music.play();
-    }
+    if (music.paused) music.play();
   }, { once: true });
 
+  // ✅ Toggle music manually
   musicBtn.addEventListener('click', () => {
     if (music.paused) {
       music.play();
@@ -1823,6 +1821,19 @@ onload = () => {
       music.pause();
       icon.classList.remove('fa-pause');
       icon.classList.add('fa-play');
+    }
+  });
+
+  // ✅ Pause when tab is hidden (minimized or switched)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      music.pause();
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
+    } else {
+      music.play();
+      icon.classList.remove('fa-play');
+      icon.classList.add('fa-pause');
     }
   });
 </script>
