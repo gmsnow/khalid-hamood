@@ -270,9 +270,213 @@
   0% { text-shadow: 0 0 5px #fff1e0, 0 0 15px #ffd7b5, 0 0 25px #ffb45c; }
   100% { text-shadow: 0 0 10px #fff1e0, 0 0 25px #ffd7b5, 0 0 40px #ffb45c; }
 }
+#svg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px #000);
+}
+
+.flower path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.layer {
+  animation-name: layerAnim1;
+  animation-duration: 4s;
+  animation-fill-mode: both; 
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.layer path {
+  stroke: rgba(0, 0, 0, 0.7);
+  stroke-width: 0.75px;
+}
+
+a {
+  color: #555;
+  text-decoration: none;
+  border-bottom: 0.25rem solid transparent;
+  transition: all 0.4s;
+}
+a:hover {
+  color: #000;
+  border-bottom-color: rgba(0, 0, 0, 0.7);
+}
+
+header, footer {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+header h1 {
+  font-size: 2em;
+  margin: 0.5em 0 0;
+}
+footer {
+  bottom: 0.5em;
+}
+
+@-moz-document url-prefix() {
+  #svg {
+    filter: none;
+  }
+  .layer {
+    filter: drop-shadow(0 0 2px #000);
+  }
+}
+
+@keyframes layerAnim1 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes layerAnim2 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: scale3d(0.2, 0.2, 0.2); }
+  to { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+@keyframes layerAnim3 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: rotateZ(-270deg); }
+  to { opacity: 1; opacity: 1; transform: rotateZ(0deg); }
+}
+
+@keyframes layerAnim4 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: rotateZ(360deg) scale3d(0.2, 0.2, 0.2); }
+  to { opacity: 1; opacity: 1; transform: rotateZ(0deg) scale3d(1, 1, 1); }
+}
+
+@keyframes layerAnim5 {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes layerAnim6 {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: rotateZ(180deg) scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: rotateZ(-25.71deg) scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: rotateZ(25.71deg) scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    transform: rotateZ(-7.71deg) scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: rotateZ(7.71deg) scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateZ(0deg) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes layerAnim7 {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: rotateZ(-180deg) scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: rotateZ(25.71deg) scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: rotateZ(-25.71deg) scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    transform: rotateZ(7.71deg) scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: rotateZ(-7.71deg) scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateZ(0deg) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes layerAnim8 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: rotate3d(1, 1, 1, 360deg); }
+  to { opacity: 1; transform: rotate3d(1, 1, 1, 0deg); }
+}
+
+@keyframes layerAnim9 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: rotate3d(1, 1, 1, 360deg) scale3d(0.1, 0.1, 0.1); }
+  to { opacity: 1; transform: rotate3d(1, 1, 1, 0deg) scale3d(1, 1, 1); }
+}
+
+@keyframes layerAnim10 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: scale3d(2, 2, 2); }
+  to { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+@keyframes layerAnim11 {
+  from, to { animation-timing-function: ease-out; }
+  from { opacity: 0; transform: rotateZ(-360deg) scale3d(2, 2, 2); }
+  to { opacity: 1; transform: rotateZ(0deg) scale3d(1, 1, 1); }
+}
+
   </style>
 </head>
 <body>
+  <svg id="svg"></svg>
 <div class="invitation-wrapper" data-aos="fade-down">
   <div class="card text-center" data-aos="zoom-in" data-aos-delay="100">
     <div class="card-header bg-transparent border-0">
@@ -358,7 +562,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
 <script>
   // Initialize AOS
   document.addEventListener("DOMContentLoaded", () => { AOS.init({ duration: 1200, once: true, offset: 0 }); });
@@ -407,6 +611,150 @@
   
   updateCustomTimer();
   </script>
+<script>
+const { random, PI, sin, cos, floor, ceil } = Math;
 
+function App() {
+  const svg = document.getElementById('svg');
+  let width, height, cx, cy;
+
+  init();
+
+  function init() {
+    onResize();
+    window.addEventListener('resize', onResize);
+    document.body.addEventListener('click', onClick);
+
+    // Initial flower at center
+    createFlower({ x: 0, y: 0 });
+  }
+
+  function onClick(e) {
+    createFlower({ x: e.clientX - cx, y: e.clientY - cy });
+  }
+
+  function createFlower(params) {
+  const iRadiusCoef = rnd(2, 3);  // increased from 1-2
+  const oRadiusCoef = rnd(iRadiusCoef, 5); // increased from 3
+  new Flower({
+    parent: svg,
+    petals: rndInt(5, 10),  // a few more petals
+    rings: rndInt(4, 8),    // more rings for bigger flower
+    step: rndInt(3, 6),
+    alpha: rnd(0.8, 1),
+    angle: rnd(PI),
+    iRadius: rnd(2, 3),        // bigger inner radius
+    iRadiusCoef,
+    oRadius: rnd(3, 5),        // bigger outer radius
+    oRadiusCoef,
+    colors: ['#21B91B', '#FFFF80', '#D1104D', '#7F266A'],
+    ...params
+  });
+}
+
+
+  function onResize() {
+    const r = svg.getBoundingClientRect();
+    width = r.width;
+    height = r.height;
+    cx = width / 2;
+    cy = height / 2;
+    updateViewBox();
+  }
+
+  function updateViewBox() {
+    const zoom = 100;
+    const vbW = (width * 100) / zoom;
+    const vbH = (height * 100) / zoom;
+    const vbX = 0 - vbW / 2;
+    const vbY = 0 - vbH / 2;
+    svg.setAttribute('viewBox', `${vbX} ${vbY} ${vbW} ${vbH}`);
+  }
+}
+
+class Flower {
+  constructor(conf) {
+    this.conf = {
+      alpha: 1,
+      angle: 0,
+      iRadius: 1,
+      iRadiusCoef: 2,
+      oRadius: 2,
+      oRadiusCoef: 4,
+      layerAnim: 'layerAnim' + (rndInt(1, 12)),
+      reverseDelay: rnd(1) > 0.5,
+      ...conf
+    };
+    this.create();
+  }
+
+  create() {
+    let { parent, x, y, petals, rings, step, colors, alpha, angle, iRadius, iRadiusCoef, oRadius, oRadiusCoef, layerAnim, reverseDelay } = this.conf;
+    this.group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    this.group.classList.add('flower');
+    parent.appendChild(this.group);
+
+    if (!colors) colors = ['#21B91B', '#FFFF80', '#D1104D', '#7F266A'];
+
+    const cscale = chroma.scale(colors);
+    for (let i = rings; i > 0; i--) {
+      const layer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      layer.classList.add('layer');
+
+      const np = floor((i + step - 1) / step) * petals;
+      const color = cscale(i / rings).alpha(alpha);
+      this.createPetalsRing(layer, x, y, np, iRadius + i * iRadiusCoef, oRadius + i * oRadiusCoef, angle + i % 2 * PI / np, color);
+
+      const di = reverseDelay ? (rings - i + 1) : i;
+      layer.style.animationName = layerAnim;
+      layer.style.animationDuration = (rings * 0.3) + 's';
+      layer.style.animationDelay = (di * 0.15) + 's';
+      this.group.appendChild(layer);
+    }
+  }
+
+  createPetalsRing(parent, x, y, n, iRadius, oRadius, angle, fill) {
+    const da = 2 * PI / n;
+    const dr = oRadius - iRadius;
+    const cpda = rnd(0.5 * da / 5, 1.5 * da / 5);
+    const cpdr = rnd(dr * 0.25, dr * 1.1);
+    for (let i = 0; i < n; i++) {
+      const a = angle + i * da;
+      new Petal({ parent, x, y, startA: a, endA: a + da, iRadius, oRadius, cpda, cpdr, fill });
+    }
+  }
+}
+
+class Petal {
+  constructor({ parent, x, y, startA, endA, iRadius, oRadius, cpda, cpdr, fill }) {
+    const da = endA - startA;
+    const iRadius0 = iRadius / 5;
+    this.sp = [x + cos(startA + da / 2) * iRadius0, y + sin(startA + da / 2) * iRadius0];
+    this.cp1 = [x + cos(startA - cpda) * (iRadius + cpdr), y + sin(startA - cpda) * (iRadius + cpdr)];
+    this.cp2 = [x + cos(endA + cpda) * (iRadius + cpdr), y + sin(endA + cpda) * (iRadius + cpdr)];
+    this.ep = [x + cos(startA + da / 2) * oRadius, y + sin(startA + da / 2) * oRadius];
+    this.curve1 = new QCurve({ sp: this.sp, cp: this.cp1, ep: this.ep });
+    this.curve2 = new QCurve({ sp: this.sp, cp: this.cp2, ep: this.ep });
+    this.create(parent, fill);
+  }
+
+  create(parent, fill) {
+    this.path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    this.path.setAttribute('d', this.curve1.pathD() + ' ' + this.curve2.pathD());
+    this.path.style.fill = fill;
+    parent.appendChild(this.path);
+  }
+}
+
+class QCurve {
+  constructor({ sp, cp, ep }) { this.sp = sp; this.cp = cp; this.ep = ep; }
+  pathD() { return `M${this.sp[0]} ${this.sp[1]} Q${this.cp[0]} ${this.cp[1]} ${this.ep[0]} ${this.ep[1]}`; }
+}
+
+function rnd(min, max) { return max === undefined ? random() * min : random() * (max - min) + min; }
+function rndInt(min, max) { min = ceil(min); max = floor(max); return floor(random() * (max - min)) + min; }
+
+App();
+</script>
 </body>
 </html>
